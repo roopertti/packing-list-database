@@ -1,0 +1,1 @@
+module.exports = require('test-config/jest/jest-server-preset')
