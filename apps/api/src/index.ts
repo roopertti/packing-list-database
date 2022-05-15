@@ -1,7 +1,11 @@
 import { createApp } from '~/app'
+import { createEnvironment } from '~/config/environment'
+import { createDatabase } from '~/config/database'
 
-const app = createApp()
+const environment = createEnvironment()
+const db = createDatabase({ environment })
+const app = createApp({ environment, db })
 
-app.listen(8080, () => {
-  console.log(`Server listening to port ${8080}`)
+app.listen(environment.PORT, () => {
+  console.log(`Server listening to port ${environment.PORT}`)
 })

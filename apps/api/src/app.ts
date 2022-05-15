@@ -1,6 +1,14 @@
 import express from 'express'
 
-export const createApp = () => {
+import { DB } from '~/config/database'
+import { Environment } from '~/config/environment'
+
+type AppDependencies = {
+  environment: Environment
+  db: DB
+}
+
+export const createApp = (_: AppDependencies) => {
   const app = express()
 
   app.get('/health', async (_, res) => {
